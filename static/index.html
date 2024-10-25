@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
    <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Skibidi Unblocker</title>
+      
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
       <link rel="stylesheet" href="index.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&display=swap" rel="stylesheet">
    </head>
+   
    <body>
-      <div id="header">
-      </div>
+      <div id="header"></div>
+
       <div id="content">
          <h1>Skibidi Unblocker!</h1>
+         
+         <form id="uv-form">
+            <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden">
+            <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input">
+         </form>
 
-
-         <form id="uv-form"">
-            <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
-            <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
-          </form>
-                  <h4>Sigma Dorian Productions</h4>
-          <div class="desc left-margin">
+         <h4>Sigma Dorian Productions</h4>
+         
+         <div class="desc left-margin">
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
-          </div>
+         </div>
       </div>
+
       <script src="uv/uv.bundle.js" defer></script>
       <script src="uv/uv.config.js" defer></script>
       <script src="register-sw.js" defer></script>
       <script src="search.js" defer></script>
       <script src="index.js" defer></script>
       <script src="error.js" defer></script>
-      <div id="footer">
-      </div>
+
+      <div id="footer"></div>
    </body>
 </html>
