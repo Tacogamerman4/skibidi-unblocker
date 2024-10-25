@@ -21,6 +21,15 @@ body {
   text-transform: uppercase;
 }
 
+#h3 {
+  margin: 0;
+  font-size: 24px;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
 #header img {
   width: 20%;
   height: auto;
