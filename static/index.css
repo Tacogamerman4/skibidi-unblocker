@@ -1,44 +1,76 @@
-body {
-   font-family: 'Open Sans', sans-serif;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   flex-direction: column;
-   min-height: 100vh;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centered Search Bar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Oswald:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-#header {
-   display: none; /* Hides the header if not needed */
-}
+    body {
+      font-family: 'Open Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+      background-size: 300% 300%;
+      animation: gradientShift 10s ease infinite;
+    }
 
-#content {
-   padding: 20px;
-   flex: 1;
-}
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-h1 {
-   font-family: 'Oswald', sans-serif;
-   color: #333;
-   margin-bottom: 20px;
-}
+    #content {
+      padding: 40px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+    }
 
-.form__input {
-   width: 100%;
-   padding: 10px;
-   font-size: 16px;
-   margin-bottom: 10px;
-   border: 1px solid #ccc;
-   border-radius: 5px;
-}
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      color: #333;
+      margin-bottom: 20px;
+    }
 
-.desc {
-   font-size: 14px;
-   color: #666;
-}
+    .form__input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-#footer {
-   background-color: transparent; /* Ensures no blue color appears */
-   height: 0;
-   margin: 0;
-   padding: 0;
-}
+    .desc {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    #footer {
+      display: none; 
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>Search</h1>
+    <input type="text" class="form__input" placeholder="Enter your search">
+    <p class="desc">Search anything you need in a simple, beautiful interface.</p>
+  </div>
+</body>
+</html>
