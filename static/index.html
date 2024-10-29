@@ -3,84 +3,89 @@
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Skibidi Unblocker</title>
-      
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-<style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+      <style>
+         * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+         }
 
-    body {
-      font-family: 'Open Sans', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
-      background-size: 300% 300%;
-      animation: gradientShift 10s ease infinite;
-    }
+         body {
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+            background-size: 300% 300%;
+            animation: gradientShift 10s ease infinite;
+         }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+         @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+         }
 
-    #content {
-      padding: 40px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.8);
-      border-radius: 10px;
-      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-      width: 90%;
-      max-width: 400px;
-    }
+         #content {
+            padding: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+         }
 
-    h1 {
-      font-family: 'Oswald', sans-serif;
-      color: #333;
-      margin-bottom: 20px;
-    }
+         h1 {
+            font-family: 'Oswald', sans-serif;
+            color: #333;
+            margin-bottom: 20px;
+         }
 
-    .form__input {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
+         .form__input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+         }
 
-    .desc {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 10px;
-    }
+         .desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+         }
 
-    #footer {
-      display: none; 
-    }
-</style>      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+         #footer {
+            display: none;
+         }
+      </style>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
       <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald&display=swap" rel="stylesheet">
    </head>
-   
+
    <body>
       <div id="header"></div>
 
       <div id="content">
          <h1>Skibidi Unblocker!</h1>
-         
+
          <form id="uv-form">
             <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden">
             <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input">
          </form>
-         
-         <div class="desc left-margin">
+
+         <div class="desc">
             <p id="uv-error"></p>
             <pre id="uv-error-code"></pre>
          </div>
