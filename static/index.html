@@ -1,44 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <title>
-New Tab
-      </title>
- <style>
-    #invisibleButton {
-      position: fixed;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1000px; 
-      height: 200px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
-
-<button id="invisibleButton" onclick="blank()"></button>
-
-<script>
-  function blank(){
-    (function () {
-      var url = document.URL;
-      var win = window.open();
-      win.document.body.style.margin = "0";
-      win.document.body.style.height = "100vh";
-      var iframe = win.document.createElement("iframe");
-      iframe.style.border = "none";
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      iframe.style.margin = "0";
-      iframe.referrerpolicy = "no-referrer";
-      iframe.allow = "fullscreen";
-      iframe.src = url.toString();
-      win.document.body.appendChild(iframe);
-    })();
-  }
-</script>
+      <title>New Tab</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
@@ -56,7 +19,7 @@ New Tab
             align-items: center;
             min-height: 100vh;
             overflow: hidden;
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+            background: linear-gradient(45deg, #01EFAC, #01CBAE, #2082A6, #524094, #562A83);
             background-size: 300% 300%;
             animation: gradientShift 10s ease infinite;
          }
@@ -105,6 +68,18 @@ New Tab
          #footer {
             display: none;
          }
+
+         #invisibleButton {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1000px; 
+            height: 200px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+         }
       </style>
 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -127,6 +102,29 @@ New Tab
             <pre id="uv-error-code"></pre>
          </div>
       </div>
+
+      <button id="invisibleButton" onclick="blank()"></button>
+
+      <script>
+         function blank(){
+            (function () {
+               var url = document.URL;
+               var win = window.open();
+               win.document.body.style.margin = "0";
+               win.document.body.style.height = "100vh";
+               var iframe = win.document.createElement("iframe");
+               iframe.style.border = "none";
+               iframe.style.width = "100%";
+               iframe.style.height = "100%";
+               iframe.style.margin = "0";
+               iframe.referrerpolicy = "no-referrer";
+               iframe.allow = "fullscreen";
+               iframe.src = url.toString();
+               win.document.body.appendChild(iframe);
+            })();
+         }
+      </script>
+
       <script src="uv/uv.bundle.js" defer></script>
       <script src="uv/uv.config.js" defer></script>
       <script src="register-sw.js" defer></script>
