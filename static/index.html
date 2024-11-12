@@ -69,16 +69,24 @@
             display: none;
          }
 
-         #invisibleButton {
+         /* New smaller button styles */
+         #smallButton {
             position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 1000px; 
-            height: 200px;
-            background: transparent;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #314870; /* Adjust to match your page style */
+            color: #fff;
             border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
             cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+         }
+
+         #smallButton:hover {
+            background-color: #48628D; /* Darker shade for hover effect */
          }
       </style>
 
@@ -103,10 +111,10 @@
          </div>
       </div>
 
-      <button id="invisibleButton" onclick="blank()"></button>
+      <button id="smallButton" onclick="blank()">Remove tab from history</button>
 
       <script>
-         function blank(){
+         function blank() {
             (function () {
                var url = document.URL;
                var win = window.open();
