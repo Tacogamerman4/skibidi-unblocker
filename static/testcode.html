@@ -70,6 +70,16 @@
     <button onclick="explodeText()">Exploding Text</button>
     <button onclick="gravityShift()">Universal Collapse</button>
     <button onclick="earthquakeMode()">Earthquake Mode</button>
+    <button onclick="matrixMode()">Matrix Mode</button>
+    <button onclick="bubbleRise()">Bubble Rise</button>
+    <button onclick="pixelate()">Pixelation Effect</button>
+    <button onclick="flashBang()">Flash Bang</button>
+    <button onclick="slowMo()">Slow-Mo Shake</button>
+    <button onclick="spinElements()">Spin Everything</button>
+    <button onclick="waveEffect()">Wave Effect</button>
+    <button onclick="cloneChaos()">Clone Chaos</button>
+    <button onclick="randomFont()">Random Font Party</button>
+    <button onclick="laserShow()">Laser Show</button>
   </div>
 
   <script>
@@ -166,6 +176,178 @@
       setInterval(() => {
         document.body.style.transform = `translate(${Math.random() * intensity - intensity / 2}px, ${Math.random() * intensity - intensity / 2}px)`;
       }, 100);
+    }
+
+    function matrixMode() {
+      const chars = "01";
+      const matrix = document.createElement("canvas");
+      matrix.width = window.innerWidth;
+      matrix.height = window.innerHeight;
+      matrix.style.position = "absolute";
+      matrix.style.top = "0";
+      matrix.style.left = "0";
+      document.body.appendChild(matrix);
+      const ctx = matrix.getContext("2d");
+
+      const columns = Math.floor(matrix.width / 10);
+      const drops = Array(columns).fill(1);
+
+      function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, matrix.width, matrix.height);
+        ctx.fillStyle = "#0F0";
+        ctx.font = "10px monospace";
+
+        drops.forEach((y, x) => {
+          const text = chars.charAt(Math.floor(Math.random() * chars.length));
+          ctx.fillText(text, x * 10, y * 10);
+
+          if (y * 10 > matrix.height && Math.random() > 0.95) {
+            drops[x] = 0;
+          }
+          drops[x]++;
+        });
+      }
+      setInterval(drawMatrix, 50);
+    }
+
+    function bubbleRise() {
+      const container = document.createElement("div");
+      container.style.position = "absolute";
+      container.style.top = "0";
+      container.style.left = "0";
+      container.style.width = "100%";
+      container.style.height = "100%";
+      container.style.pointerEvents = "none";
+      document.body.appendChild(container);
+
+      for (let i = 0; i < 100; i++) {
+        const bubble = document.createElement("div");
+        bubble.style.position = "absolute";
+        bubble.style.bottom = "0";
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.width = `${Math.random() * 10 + 5}px`;
+        bubble.style.height = bubble.style.width;
+        bubble.style.background = "rgba(255, 255, 255, 0.5)";
+        bubble.style.borderRadius = "50%";
+        bubble.style.animation = `rise ${Math.random() * 5 + 3}s linear infinite`;
+        container.appendChild(bubble);
+      }
+
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes rise {
+          0% { transform: translateY(0); opacity: 1; }
+          100% { transform: translateY(-100vh); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+function pixelate() {
+      document.body.style.filter = "blur(5px)";
+      setTimeout(() => document.body.style.filter = "none", 2000);
+    }
+
+    function flashBang() {
+      const flash = document.createElement("div");
+      flash.style.position = "absolute";
+      flash.style.top = "0";
+      flash.style.left = "0";
+      flash.style.width = "100%";
+      flash.style.height = "100%";
+      flash.style.backgroundColor = "white";
+      flash.style.opacity = "0";
+      flash.style.transition = "opacity 0.2s";
+      document.body.appendChild(flash);
+
+      setTimeout(() => flash.style.opacity = "1", 50);
+      setTimeout(() => flash.style.opacity = "0", 250);
+      setTimeout(() => document.body.removeChild(flash), 500);
+    }
+
+    function slowMo() {
+      document.body.style.transition = "transform 5s linear";
+      document.body.style.transform = "scale(0.5)";
+      setTimeout(() => document.body.style.transform = "scale(1)", 5000);
+    }
+
+    function spinElements() {
+      const elements = document.querySelectorAll("h1, button, *:not(button)");
+      elements.forEach(el => {
+        el.style.transition = "transform 2s ease-in-out";
+        el.style.transform = `rotate(${Math.random() * 360}deg)`;
+      });
+    }
+
+    function waveEffect() {
+      const wave = document.createElement("div");
+      wave.style.position = "absolute";
+      wave.style.top = "50%";
+      wave.style.left = "50%";
+      wave.style.width = "100px";
+      wave.style.height = "100px";
+      wave.style.backgroundColor = "#ff7f00";
+      wave.style.borderRadius = "50%";
+      wave.style.animation = "wave 5s infinite";
+      document.body.appendChild(wave);
+
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes wave {
+          0% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(2); opacity: 0.5; }
+          100% { transform: scale(1); opacity: 1; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    function cloneChaos() {
+      const clone = document.createElement("div");
+      clone.style.position = "absolute";
+      clone.style.top = `${Math.random() * 100}%`;
+      clone.style.left = `${Math.random() * 100}%`;
+      clone.style.width = "50px";
+      clone.style.height = "50px";
+      clone.style.backgroundColor = "red";
+      clone.style.animation = "clone 1s infinite";
+      document.body.appendChild(clone);
+
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes clone {
+          0% { transform: scale(1); }
+          100% { transform: scale(1.5); }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
+    function randomFont() {
+      const fonts = ["'Courier New'", "'Times New Roman'", "'Comic Sans MS'", "'Arial'", "'Georgia'"];
+      document.body.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+    }
+
+    function laserShow() {
+      const laser = document.createElement("div");
+      laser.style.position = "absolute";
+      laser.style.top = "0";
+      laser.style.left = "0";
+      laser.style.width = "100%";
+      laser.style.height = "100%";
+      laser.style.backgroundImage = "radial-gradient(circle, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5))";
+      laser.style.animation = "laser 1s linear infinite";
+      document.body.appendChild(laser);
+
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes laser {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `;
+      document.head.appendChild(style);
     }
   </script>
 </body>
