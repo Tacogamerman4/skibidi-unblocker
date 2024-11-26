@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern JavaScript Effects</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: #f1f1f1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #ff7f00;
+      text-shadow: 2px 2px #000;
+      margin-bottom: 30px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    /* Button Styles */
+    button {
+      background-color: #ff7f00;
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      padding: 15px 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    button:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Effects Playground</h1>
+  <div class="button-container">
+    <button onclick="shrekify()">Shrekify the Page</button>
+    <button onclick="startRainbowEffect()">Rainbow Div Animation</button>
+    <button onclick="applyCSSAnimation()">Body Roll Animation</button>
+  </div>
+
+  <div class="div-container" style="display: none; flex-wrap: wrap; gap: 10px; max-width: 80%; justify-content: center; margin-top: 30px;">
+    <!-- Placeholder for Rainbow Animation Divs -->
+    <div style="width: 100px; height: 100px; background-color: #ccc; border-radius: 10px;"></div>
+    <div style="width: 100px; height: 100px; background-color: #ccc; border-radius: 10px;"></div>
+    <div style="width: 100px; height: 100px; background-color: #ccc; border-radius: 10px;"></div>
+    <div style="width: 100px; height: 100px; background-color: #ccc; border-radius: 10px;"></div>
+    <div style="width: 100px; height: 100px; background-color: #ccc; border-radius: 10px;"></div>
+  </div>
+
+  <script>
+    function shrekify() {
+      function a(e) {
+        var n = e.childNodes;
+        for (var i in n) {
+          a(n[i]);
+          if (n[i] && n[i].style) {
+            n[i].style.backgroundImage =
+              "url(https://www.thefactsite.com/wp-content/uploads/2012/05/shrek-facts.webp)";
+          }
+        }
+      }
+      a(document);
+
+      (function () {
+        window.g = function () {
+          function G(element) {
+            if (element.childNodes.length > 0)
+              for (var i = 0; i < element.childNodes.length; i++) {
+                if (
+                  element.childNodes[i].nodeName.toLowerCase() !== "style" &&
+                  element.childNodes[i].nodeName.toLowerCase() !== "script"
+                ) {
+                  G(element.childNodes[i]);
+                }
+              }
+            if (element.nodeType === Node.TEXT_NODE && element.nodeValue !== "") {
+              var thechars = [" shrek ", " shrek "]; // Extend as needed
+              element.textContent = element.textContent.replace(/a/g, thechars[0]);
+            }
+          }
+          var html = document.getElementsByTagName("html")[0];
+          G(html);
+        };
+        setInterval(g, 1);
+      })();
+    }
+
+    function startRainbowEffect() {
+      document.querySelector(".div-container").style.display = "flex";
+
+      var incrementingNum = 0;
+      var colors = "red orange yellow green blue purple pink".split(" ");
+      setInterval(function () {
+        if (incrementingNum >= 6) {
+          incrementingNum = 0;
+        } else {
+          incrementingNum++;
+        }
+        var divs = document.querySelectorAll(".div-container div");
+        for (var i = 0; i < divs.length; i++) {
+          divs[i].style.backgroundColor = colors[incrementingNum];
+          divs[i].style.transition = "background-color 1s";
+        }
+      }, 1000);
+    }
+
+    function applyCSSAnimation() {
+      const css = `
+        @keyframes roll {
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+        body {
+          animation-name: roll;
+          animation-duration: 4s;
+          animation-iteration-count: 1;
+        }
+      `;
+      const style = document.createElement("style");
+      style.innerHTML = css;
+      document.head.appendChild(style);
+    }
+  </script>
+</body>
+</html>
